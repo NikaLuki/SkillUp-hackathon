@@ -1,17 +1,22 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AuthProvider from "./app/hooks/useAuth";
+import Navigation from "./app/navigation/Navigation";
 import Main from "./app/screens/main/Main";
 
 export default function App() {
+    const queryClient = new QueryClient();
     return (
-        <>
-            <View className={"flex-1 items-center justify-center bg-white"}>
-                <Main />
-                <StatusBar style="light" />
-            </View>
-        </>
+        <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+                <SafeAreaProvider>
+                    <Navigation />
+                </SafeAreaProvider>
+            </AuthProvider>
+            <StatusBar style="auto" />
+        </QueryClientProvider>
     );
 }

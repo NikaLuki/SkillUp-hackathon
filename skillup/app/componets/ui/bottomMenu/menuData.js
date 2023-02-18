@@ -1,19 +1,19 @@
 export const menuData = [
     {
         path: "Menu",
-        img: "A"
+        iconName: "navicon"
     },
 
     {
-        path: "Serch",
-        img: "S"
+        path: "Search",
+        iconName: "search"
     },
     {
-        path: "MyBron",
-        img: "M"
+        path: "Science",
+        iconName: "trophy"
     },
     {
         path: "Profile",
-        img: "P"
+        iconName: "user"
     }
 ];

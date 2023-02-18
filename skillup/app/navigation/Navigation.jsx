@@ -1,16 +1,36 @@
-import React from "react";
-import { useNavigationContainerRef } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
+import {
+    NavigationContainer,
+    useNavigationContainerRef
+} from "@react-navigation/native";
 import { Text, View } from "react-native";
 import BottomMenu from "../componets/ui/bottomMenu/BottomMenu";
 import { useAuth } from "../hooks/useAuth";
+import PrivateNavigation from "./PrivateNavigation";
 
 const Navigation = () => {
     const navRef = useNavigationContainerRef();
-    const { currentUser } = useAuth();
+    const { user } = useAuth();
+
+    const [currentRoute, setCurrentRoute] = useState(undefined);
+
+    useEffect(() => {
+        setCurrentRoute(navRef.getCurrentRoute()?.name);
+        const listener = navRef.addListener("state", () =>
+            setCurrentRoute(navRef.getCurrentRoute()?.name)
+        );
+        return () => {
+            navRef.removeListener("state", listener);
+        };
+    }, []);
+
     return (
         <>
-            {currentUser && (
-                <BottomMenu currentRoute={"A"} nav={navRef.navigate} />
+            <NavigationContainer ref={navRef}>
+                <PrivateNavigation />
+            </NavigationContainer>
+            {user && (
+                <BottomMenu currentRoute={currentRoute} nav={navRef.navigate} />
             )}
         </>
     );
