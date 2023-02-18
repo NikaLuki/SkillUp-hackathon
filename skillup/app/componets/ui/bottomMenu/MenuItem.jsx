@@ -3,20 +3,20 @@ import React, { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
 
 const MenuItem = ({ currentRoute, nav, item }) => {
-    const isActive = currentRoute === item.path;
+  const isActive = currentRoute === item.path;
 
-    return (
-        <Pressable
-            className={"w-[24%] items-center "}
-            onPress={() => nav(item.path)}
-        >
-            <EvilIcons
-                name={item.iconName}
-                size={26}
-                color={isActive ? "#00A19A" : " "}
-            />
-        </Pressable>
-    );
+  return (
+    <Pressable
+      className={"w-[24%] items-center "}
+      onPress={() => nav(item.path)}
+    >
+      <EvilIcons
+        name={item.iconName}
+        size={26}
+        color={isActive ? "#00A19A" : " "}
+      />
+    </Pressable>
+  );
 };
 
 export default MenuItem;
