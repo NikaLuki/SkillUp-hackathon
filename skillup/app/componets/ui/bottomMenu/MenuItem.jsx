@@ -1,7 +1,6 @@
 import { EvilIcons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
-import Icon from "../../common/Icon/Icon";
 
 const MenuItem = ({ currentRoute, nav, item }) => {
     const isActive = currentRoute === item.path;

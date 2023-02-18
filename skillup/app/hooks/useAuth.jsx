@@ -7,11 +7,15 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({ children = null }) => {
-    const [user, setUser] = useState({ id: "1" });
+    const [user, setUser] = useState({});
     useEffect(() => {}, []);
 
+    function logOut() {
+        setUser(null);
+    }
+
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider value={{ user, setUser, logOut }}>
             {children}
         </AuthContext.Provider>
     );
