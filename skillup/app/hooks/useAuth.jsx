@@ -6,16 +6,20 @@ export const useAuth = () => {
     return useContext(AuthContext);
 };
 
-const AuthProvider = ({ children = null }) => {
-    const [user, setUser] = useState({});
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState();
     useEffect(() => {}, []);
+
+    function singIn(data) {
+        setUser({ email: data.email, password: data.password });
+    }
 
     function logOut() {
         setUser(null);
     }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, logOut }}>
+        <AuthContext.Provider value={{ user, setUser, logOut, singIn }}>
             {children}
         </AuthContext.Provider>
     );
