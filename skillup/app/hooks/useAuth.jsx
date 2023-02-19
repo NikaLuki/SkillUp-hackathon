@@ -7,13 +7,13 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState("Search");
     useEffect(() => {}, []);
 
     function singIn(data) {
+        alert(data.email + " " + data.password);
         setUser({ email: data.email, password: data.password });
     }
-
     function logOut() {
         setUser(null);
     }

@@ -12,7 +12,7 @@ const Layout = ({ children, title = "" }) => {
                     paddingTop: Platform.OS === "ios" ? top / 5 : top * 1.6
                 }}
             >
-                <Text className=" text-2xl text-center font-semibold ">
+                <Text className=" text-xl text-center font-medium ">
                     {title}
                 </Text>
                 {children}

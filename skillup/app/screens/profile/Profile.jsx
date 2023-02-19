@@ -11,13 +11,12 @@ import {
     View
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import Button from "../../componets/common/Button";
 import cn from "clsx";
 import ProfileInput from "../../componets/ui/ProfileInput/ProfileSelect";
 import { useAuth } from "../../hooks/useAuth";
 
 const Profile = () => {
-    const { control, reset, handleSubmit } = useForm({ mode: "onChange" });
+    const { control, handleSubmit } = useForm({ mode: "onChange" });
     const { top } = useSafeAreaInsets();
     const { logOut } = useAuth();
 

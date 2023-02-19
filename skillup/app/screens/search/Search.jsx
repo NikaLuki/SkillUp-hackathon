@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Pressable, Text, View } from "react-native";
 import Layout from "../../componets/ui/Layout";
 import cn from "clsx";
+import SearchPage from "../../componets/ui/SearchPage";
 
 const Search = () => {
     const [isSearch, setisSearch] = useState(true);
@@ -10,8 +11,8 @@ const Search = () => {
     };
     return (
         <Layout title="Бронирование">
-            <View className="flex-row mt-5 ">
-                <Pressable
+            <View className="flex-row mt-5 w-full  ">
+                {/* <Pressable
                     id="search"
                     className={cn(
                         "w-1/2 items-center ",
@@ -19,7 +20,7 @@ const Search = () => {
                     )}
                     onPress={(e) => handlePress(true)}
                 >
-                    <Text className="m-0 pb-5">Поиск</Text>
+                    <Text className="">Поиск</Text>
                 </Pressable>
                 <Pressable
                     className={cn(
@@ -29,8 +30,11 @@ const Search = () => {
                     )}
                     onPress={(e) => handlePress(false)}
                 >
-                    <Text className="m-0 pb-5">Карта</Text>
-                </Pressable>
+                    <Text className="">Карта</Text>
+                </Pressable> */}
+            </View>
+            <View className="flex-1 w-full items-center">
+                <SearchPage />
             </View>
         </Layout>
     );
